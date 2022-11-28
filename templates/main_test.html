@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{title1}}</title>
+  </head>
+
+  <body>
+
+    <h1>Hallo, Ongaipi! Welcome to my movie Recommender! weyapoo, eli epandja letuvene!</h1>
+
+    <p>It is fun -you rate the ones you have watched before. When you hit Submit, you will get films recommendations</p>
+
+    <form action="/recommendations">
+        <br>
+        <br>
+        {% for i in range(5)%}
+        <input type="text"
+               name="title"
+               placeholder="film title"
+               required
+               list="films"
+        </input>
+        <input type="text"
+               name="rating"
+               placeholder="1-5"
+               required
+        </input>
+        <br>
+        <br>
+        {% endfor %}
+        <button type="submit">Show Recommendations</button>
+    </form>
+    <datalist id="films">
+        {% for film in films%}
+        <option value="{{film}}"></option>
+        {% endfor %}
+    </datalist>
+
+</body>
+
+</html>
